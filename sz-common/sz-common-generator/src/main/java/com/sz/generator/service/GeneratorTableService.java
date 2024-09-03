@@ -71,7 +71,7 @@ public interface GeneratorTableService extends IService<GeneratorTable> {
 
     GenCheckedInfoVO checkDist(String tableName);
 
-    byte[] downloadZip(SelectTablesDTO dto) throws IOException;
+    byte[] downloadZip(String tableName) throws IOException;
 
     List<GeneratorPreviewVO> preview(String tableName) throws IOException;
 

@@ -91,12 +91,28 @@ public class GeneratorTableController {
         generatorTableService.remove(dto);
         return ApiResult.success();
     }
-
+/*
     @SaCheckPermission(value = "generator.zip", orRole = GlobalConstant.SUPER_ROLE)
     @Operation(summary = "zip下载")
     @PostMapping("zip")
-    public void downloadZip(@RequestBody SelectTablesDTO dto, HttpServletResponse response) throws IOException {
+    public void downloadZip(HttpServletResponse response) throws IOException {
+        SelectTablesDTO dto = new SelectTablesDTO();
+        dto.setTableNames(List.of("teacher_statistics"));
         byte[] data = generatorTableService.downloadZip(dto);
+        response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+        response.setHeader("Content-Disposition", "attachment; filename=\"sz-admin.zip\"");
+        response.setContentLength(data.length);
+
+        // 将字节数组写入输出流
+        IOUtils.write(data, response.getOutputStream());
+        response.flushBuffer();
+    }*/
+
+    @SaCheckPermission(value = "generator.zip", orRole = GlobalConstant.SUPER_ROLE)
+    @Operation(summary = "zip下载")
+    @GetMapping("zip/{tableName}")
+    public void downloadZip2(@PathVariable String tableName, HttpServletResponse response) throws IOException {
+        byte[] data = generatorTableService.downloadZip(tableName);
         response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
         response.setHeader("Content-Disposition", "attachment; filename=\"sz-admin.zip\"");
         response.setContentLength(data.length);
