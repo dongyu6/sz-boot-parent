@@ -166,6 +166,16 @@
                 <artifactId>fastexcel</artifactId>
                 <version>1.0.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.dromara.warm-mybatis-flex</groupId>
+                <artifactId>warm-flow-mybatis-flex-sb3-starter</artifactId>
+                <version>1.6.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dromara.warm</groupId>
+                <artifactId>warm-flow-mybatis-sb3-starter</artifactId>
+                <version>1.6.6</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

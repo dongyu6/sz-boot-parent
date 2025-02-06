@@ -84,5 +84,11 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
         </dependency>
+        <!-- flow模块-->
+        <dependency>
+            <groupId>com.sz.flow</groupId>
+            <artifactId>sz-common-flow</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>
